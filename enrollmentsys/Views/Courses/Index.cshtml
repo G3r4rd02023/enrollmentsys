@@ -1,0 +1,41 @@
+﻿@model IEnumerable<enrollmentsys.Data.Entities.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4><strong>Clases</strong></h4>
+<hr />
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva clase</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-warning">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.Id" class=" btn btn-info">Detalles</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id" class=" btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
